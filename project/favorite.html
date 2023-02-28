@@ -1,0 +1,67 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Hello Bulma!</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+      </head>
+<body>
+    <div id="app">
+        <nav class="navbar is-black" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+              <a class="navbar-item is-black">
+                <strong>WebManga</strong>
+              </a>
+          
+              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </a>
+            </div>
+            
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="index.html">
+                        Home
+                    </a>
+                    <a class="navbar-item" href="favorite.html">
+                        Favorite
+                    </a>
+                </div>
+                <div class="navbar-end">
+                    <a class="navbar-item">
+                        Sign in
+                    </a>
+                    <a class="navbar-item">
+                        Log in
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <!--favorite collumns-->
+        <div v-for="(fav, index) in favlist">
+            <div class="card" style="padding-bottom: 100px;">
+              <div class="card-image">
+                <figure class="image is-3by3 imgBook">
+                  <img id="imgsrc" :src="fav.src">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <p class="title is-4">{{fav.name}}</p>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- script -->
+    <script src="./data.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="vue.js"></script>
+</body>
+</html>
