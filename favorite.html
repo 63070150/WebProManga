@@ -42,7 +42,7 @@
             </div>
         </nav>
         <!--favorite collumns-->
-        <div v-for="(fav, index) in favlist">
+        <div v-for="(fav, index) in getfavlist">
             <div class="card" style="padding-bottom: 100px;">
               <div class="card-image">
                 <figure class="image is-3by3 imgBook">
@@ -57,6 +57,9 @@
             </div>
         </div>
     </div>
+    <script>
+      let getfavlist = JSON.parse(localStorage.getItem('favlist'))
+    </script>
 
 
     <!-- script -->
