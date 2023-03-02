@@ -13,23 +13,25 @@ var app = new Vue({
     methods: {
       addfav(index){
         let book = this.books[index]//corrected
-        if(this.getfav().includes(book)){                                 //??gotta find which book_id in favlist that equal to it then splice it  but idk how to get index from favlist
-          let fav = this.getfav()
-          console.log(fav);
-          let fbookindex = fav.map(item => item.book_id).indexOf(book.book_id)
-          fav.splice(fbookindex, 1)
+        let getfav = JSON.parse(localStorage.getItem('favlist'))
+        //if(getfav.includes(book)){
+          //??gotta find which book_id in favlist that equal to it then splice it  but idk how to get index from favlist
+        if(false){
+          let fbookindex = getfav.map(item => item.book_id).indexOf(book.book_id)
+          getfav.splice(fbookindex, 1)
           localStorage.clear()
-          localStorage.setItem("favlist", JSON.stringify(fav))
+          localStorage.setItem("favlist", JSON.stringify(getfav))
         }else{
-          this.favlist.push(book)// need
-          this.setfav(this.favlist)
+          this.favlist.push(book)// need   correct
+          localStorage.setItem("favlist", JSON.stringify(this.favlist))//correct
+          console.log(getfav);
         }
       },
-      getfav(){
-        return JSON.parse(localStorage.getItem('favlist'));//got favlist[obj, obj, obj,...]
-      },
-      setfav(obj){
-        localStorage.setItem("favlist", JSON.stringify(obj));//send to storage got 'favlist[obj, obj, obj,]'
-      }
+      // getfav(){
+      //   return JSON.parse(localStorage.getItem('favlist'));//got favlist[obj, obj, obj,...]
+      // },
+      // setfav(obj){
+      //   localStorage.setItem("favlist", JSON.stringify(obj));//send to storage got 'favlist[obj, obj, obj,]'
+      // }
     }
 })
