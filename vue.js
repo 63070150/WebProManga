@@ -6,7 +6,7 @@ var app = new Vue({
         prename: '',
         fname: '',
         lname: '',
-        score: '',
+        score: '5',
         books: books,
         favlist: [],
         getfavlist: [],
@@ -24,6 +24,7 @@ var app = new Vue({
         }
         else{
           this.favlist.push(book);localStorage.setItem("favlist", JSON.stringify(this.favlist))//correct
+          this.score='6'
         }
       },
       funcgetfav(){

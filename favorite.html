@@ -6,9 +6,10 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+        <link rel="stylesheet" href="index.html">
       </head>
 <body>
-    <div id="app">
+    <div id="app2">
         <nav class="navbar is-black" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
               <a class="navbar-item is-black">
@@ -41,6 +42,14 @@
                 </div>
             </div>
         </nav>
+        <div>
+          <h1>hlow</h1>
+          <h1>{{score}}</h1>
+        </div>
+        <script>app2.getfav()</script>
+        <!-- <script>
+          getfavlist.push(JSON.parse(localStorage.getItem('favlist')))
+        </script> -->
         <!--favorite collumns-->
         <div v-for="(fav, index) in getfavlist">
             <div class="card" style="padding-bottom: 100px;">
@@ -57,14 +66,25 @@
             </div>
         </div>
     </div>
+
+    <!-- vue -->
     <script>
-      let getfavlist = JSON.parse(localStorage.getItem('favlist'))
+var app2 = new Vue({
+    el: '#app2',
+    data: {
+      getfavlist: [{"name":"Eren1","author":"Hajime Isayama","src":"assets/eren.png","isFavorite":true,"book_id":123}],
+    },
+    methods: {
+      getfav(){
+        this.getfavlist.push(JSON.parse(localStorage.getItem('favlist')))
+      }
+    }
+})
     </script>
 
 
     <!-- script -->
     <script src="./data.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="vue.js"></script>
 </body>
 </html>
