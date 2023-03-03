@@ -47,7 +47,7 @@
       <div class="columns is-multiline" style="padding-left: 150px; padding-bottom: 50px;">
         <div class="column is-one-quarter" v-for="(book, index) in books">
             <!-- card start here -->
-            <div class="card" @click="book.isFavorite=!book.isFavorite; addfav(index)">
+            <div class="card">
                 <div class="card-image">
                 <figure class="image is-3by3 imgBook">
                     <img id="imgsrc" :src="book.src" alt="Placeholder image">
@@ -59,12 +59,19 @@
                         <p class="title is-4">{{book.name}}</p>
                         <p class="subtitle is-6">{{book.author}}</p>
                       </div>
-                      <span class="icon" v-if="!book.isFavorite">
-                        <i class="fas fa-star has-text-grey-light"></i>
-                      </span>
-                      <span class="icon" v-if="book.isFavorite">
-                        <i class="fas fa-star has-text-warning"></i>
-                      </span>
+                      <div class="star"  @click="book.isFavorite=!book.isFavorite; addfav(index)">
+                        <span class="icon" v-if="!book.isFavorite">
+                          <i class="fas fa-star has-text-grey-light"></i>
+                        </span>
+                        <span class="icon" v-if="book.isFavorite">
+                          <i class="fas fa-star has-text-warning"></i>
+                        </span>
+                      </div>
+                      <div class="bin" @click="delbook(index)">
+                        <span class="icon" v-if="true">
+                          <i class="fa-regular fa-trash"></i>
+                        </span>
+                      </div>
                   </div>
                 </div>
             </div>
