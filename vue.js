@@ -11,6 +11,7 @@ var app = new Vue({
         favlist: [],
         getfavlist: [],
         notnull: false,
+        isActive: false,
     },
     methods: {
       addfav(index){
